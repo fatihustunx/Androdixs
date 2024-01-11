@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Likes" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/heart_on</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

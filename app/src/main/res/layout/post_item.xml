@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="13dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/currents" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:id="@+id/itemPostUser"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Titles"
+            android:id="@+id/itemPostTitle"
+            android:textSize="23sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Text"
+        android:id="@+id/itemPostText"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="3dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="7dp"
+        android:layout_gravity="end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:hint="S"
+            android:id="@+id/itemPostTxtLikes"
+            android:layout_marginRight="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/itemPostBtnLikes"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/heart_off"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_gravity="center"
+            />
+<!--
+        <Button
+            style="@style/Likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:hint="Likes"
+            android:id="@+id/itemPostBtnLikes"
+            android:layout_marginRight="20dp"
+
+            android:background="@drawable/heart_on"
+            android:textColor="@color/white"
+            />
+-->
+
+
+    </LinearLayout>
+
+</LinearLayout>

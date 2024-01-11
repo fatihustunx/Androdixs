@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AiChatActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X App Ai's"
+        android:textSize="33sp"
+        android:textStyle="italic"
+        android:id="@+id/ais"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="33dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        app:layout_constraintTop_toBottomOf="@+id/ais"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:hint="Add Text For Ai's"
+        android:textAlignment="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="57dp"
+        android:id="@+id/user"
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="257dp"
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="55dp"
+        android:fillViewport="true"
+        android:id="@+id/aiScrolls">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:id="@+id/ai"
+            android:hint="Ai Res..."
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            />
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="G"
+        app:layout_constraintTop_toBottomOf="@+id/aiScrolls"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/Gen"
+        android:layout_marginTop="33dp"
+        android:onClick="G"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posts"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/Gen"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="13dp"
+        android:onClick="posts"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
