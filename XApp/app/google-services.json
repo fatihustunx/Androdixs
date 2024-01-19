@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "683225300782",
+    "project_id": "xapp-a3d37",
+    "storage_bucket": "xapp-a3d37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683225300782:android:6ddee4ad26c4decbb884bf",
+        "android_client_info": {
+          "package_name": "com.wistaster.xapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHmw9tjDKvYTyTvJBNT-siv1BtZW-Vxcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

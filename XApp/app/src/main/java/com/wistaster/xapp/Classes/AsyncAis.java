@@ -23,7 +23,7 @@ public class AsyncAis extends AsyncTask {
 
     private Context context;
     private String url = "https://api.openai.com/v1/chat/completions";
-    private String apiKey = "Bearer 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";
+    private String apiKey = "Bearer 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";
 
     @Override
     protected Object doInBackground(Object[] objects) {

@@ -1,5 +1,6 @@
 package com.wistaster.xapp.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,13 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.wistaster.xapp.Classes.CurrentUser;
-import com.wistaster.xapp.Classes.DataHelper;
 import com.wistaster.xapp.Classes.Post;
-import com.wistaster.xapp.Classes.User;
 import com.wistaster.xapp.R;
+
+import java.util.Date;
+import java.util.UUID;
 
 public class AddPostActivity extends AppCompatActivity {
 
@@ -23,10 +26,7 @@ public class AddPostActivity extends AppCompatActivity {
     EditText text;
     Button post;
 
-    DataHelper dbHelper;
-
-    RuntimeExceptionDao<Post,Integer> postDao;
-    RuntimeExceptionDao<User,Integer> userDao;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +37,7 @@ public class AddPostActivity extends AppCompatActivity {
         text = (EditText) findViewById(R.id.editTextPostText);
         post = (Button) findViewById(R.id.btnAddPost);
 
-        dbHelper = (DataHelper) OpenHelperManager.getHelper(this,DataHelper.class);
-        postDao = dbHelper.getPostRuntimeExceptionDao();
-        userDao = dbHelper.getUserRuntimeExceptionDao();
+        db = FirebaseFirestore.getInstance();
     }
 
     public void addPost(View v){
@@ -49,14 +47,26 @@ public class AddPostActivity extends AppCompatActivity {
         if(titleTxt.isEmpty() || textTxt.isEmpty()){
             Toast.makeText(AddPostActivity.this,"Do Not Empty!",Toast.LENGTH_SHORT).show();
         }else{
-            User user = userDao.queryForId(CurrentUser.getId());
-            postDao.create(new Post(user,titleTxt,textTxt));
 
-            Toast.makeText(AddPostActivity.this,"Success!", Toast.LENGTH_SHORT).show();
+            String id = UUID.randomUUID().toString();
 
-            Intent intent = new Intent(AddPostActivity.this, PostsActivity.class);
+            db.collection("Posts").document(id).set(new Post(id,CurrentUser.getCurrUser().getUid(),titleTxt,textTxt, new Date()))
+                    .addOnSuccessListener(this, new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(AddPostActivity.this,"Success!", Toast.LENGTH_SHORT).show();
 
-            startActivity(intent);
+                            Intent intent = new Intent(AddPostActivity.this, PostsActivity.class);
+
+                            startActivity(intent);
+                        }
+                    })
+                    .addOnFailureListener(this, new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddPostActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
 

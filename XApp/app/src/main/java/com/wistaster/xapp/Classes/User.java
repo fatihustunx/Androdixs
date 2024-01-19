@@ -1,29 +1,26 @@
 package com.wistaster.xapp.Classes;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
-@DatabaseTable(tableName = "Users")
 public class User {
-    @DatabaseField(generatedId = true)
-    private int id;
-    @DatabaseField
+
+    private String id;
+
     private String firstName;
-    @DatabaseField
+
     private String lastName;
-    @DatabaseField
+
     private String email;
-    @DatabaseField
+
     private String password;
-    @DatabaseField
+
     private boolean gender;
-    @DatabaseField
+
     private int avatar;
 
     public User() {}
 
-    public User(String firstName, String lastName, String email, String password,
+    public User(String id,String firstName, String lastName, String email, String password,
         boolean gender, int avatar) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -32,11 +29,11 @@ public class User {
         this.avatar = avatar;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
